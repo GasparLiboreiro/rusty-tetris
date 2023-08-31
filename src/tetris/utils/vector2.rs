@@ -17,4 +17,10 @@ impl Vec2i{
     pub const fn new(x:i64, y:i64) -> Vec2i{
         Vec2i{x,y}
     }
+    pub const fn clone(vec:&Vec2i)->Vec2i{
+        Vec2i{
+            x:vec.x,
+            y:vec.y
+        }
+    }
 }

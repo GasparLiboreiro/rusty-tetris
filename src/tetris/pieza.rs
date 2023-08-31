@@ -3,8 +3,8 @@ use super::utils::matrices::rotar_vec2i_90_n_veces;
 
 
 pub struct Pieza{
-    pub t_pieza:u8,
-    pub rotacion:u8,
+    pub t_pieza:usize,
+    pub rotacion:usize,
     pub pos:Vec2i
 }
 
@@ -90,7 +90,7 @@ impl Pieza{
         }
     ];  //uso PIEZAS[tipo][rotacion][tile]
 
-    pub fn new(t_pieza:u8)->Pieza{
+    pub fn new(t_pieza:usize)->Pieza{
         Pieza { 
             t_pieza, 
             rotacion: 0, 

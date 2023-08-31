@@ -15,6 +15,7 @@ use utils::vector2::Vec2i;
 pub struct Tetris{
     escena:Vec<Pieza>,
     puntos:i64,
+    nivel:i64,
     piezaActual:Pieza,
     piezaSiguiente:Pieza,
     display:DisplayManager
@@ -25,15 +26,23 @@ impl Tetris{
         Tetris{
             escena:Vec::new(),
             puntos:0,
+            nivel:1,
             piezaActual:Pieza::new(rand::thread_rng().gen_range(0..7)),
             piezaSiguiente:Pieza::new(rand::thread_rng().gen_range(0..7)),
-            display:DisplayManager {  }
+            display:DisplayManager {}
         }
     }
 
     pub fn run(&mut self){
-        DisplayManager::paint(&self)
+        self.paint();
+        
+        self.paint();
+        self.paint();
+        self.paint();
     }
 
-    
+    pub fn paint(&self){
+        print!("{esc}c", esc = 27 as char); //cls
+        DisplayManager::paint(&self);
+    }
 }
